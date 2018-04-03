@@ -15,8 +15,8 @@
 import sys
 from os.path import join
 
-from SCons.Script import (COMMAND_LINE_TARGETS, AlwaysBuild, Default,
-                          DefaultEnvironment)
+from SCons.Script import (ARGUMENTS, COMMAND_LINE_TARGETS, AlwaysBuild,
+                          Default, DefaultEnvironment)
 
 
 env = DefaultEnvironment()
@@ -142,16 +142,21 @@ debug_tools = board_config.get("debug.tools", {})
 upload_actions = []
 
 if upload_protocol in debug_tools:
+    openocd_args = [
+        "-c",
+        "debug_level %d" % (2 if int(ARGUMENTS.get("PIOVERBOSE", 0)) else 1),
+        "-s", platform.get_package_dir("tool-openocd") or ""
+    ]
+    openocd_args.extend(
+        debug_tools.get(upload_protocol).get("server").get("arguments", []))
+    openocd_args.extend([
+        "-c", "program {{$SOURCE}} %s verify; shutdown;" %
+        board_config.get("upload").get("flash_start", "")
+    ])
     env.Replace(
         UPLOADER="openocd",
-        UPLOADERFLAGS=["-s", platform.get_package_dir("tool-openocd") or ""] +
-        debug_tools.get(upload_protocol).get("server").get("arguments", []) +
-        [
-            "-c", "program {{$SOURCE}} %s verify; shutdown;" %
-            board_config.get("upload").get("flash_start", "")
-        ],
+        UPLOADERFLAGS=openocd_args,
         UPLOADCMD="$UPLOADER $UPLOADERFLAGS")
-
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
 
 # custom upload tool
