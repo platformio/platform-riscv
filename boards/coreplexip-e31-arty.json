@@ -1,6 +1,6 @@
 {
   "build": {
-    "f_cpu": "1500000000L",
+    "f_cpu": "320000000L",
     "hwids": [
       [
         "0x0403",
@@ -11,7 +11,7 @@
     "mabi": "ilp32",
     "march": "rv32imac",
     "mcmodel": "medany",
-    "mcu": "fe310"
+    "mcu": "e31"
   },
   "debug": {
     "tools": {
