@@ -17,13 +17,18 @@
     "tools": {
       "olimex-arm-usb-tiny-h": {
         "init_cmds": [
+          "define pio_reset_halt_target",
+          "   monitor init",
+          "end",
+          "define pio_reset_target",
+          "   pio_reset_halt_target",
+          "end",
           "target remote $DEBUG_PORT",
           "set arch riscv:rv64",
           "set mem inaccessible-by-default off",
-          "file \"$PROG_PATH\"",
           "$INIT_BREAK",
           "$LOAD_CMD",
-          "monitor init"
+          "pio_reset_halt_target"
         ],
         "server": {
           "arguments": [
