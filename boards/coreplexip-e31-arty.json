@@ -19,13 +19,15 @@
         "init_cmds": [
           "define pio_reset_halt_target",
           "   monitor init",
+          "   monitor reset halt",
           "end",
           "define pio_reset_target",
-          "   pio_reset_halt_target",
+          "   monitor reset run",
           "end",
           "target remote $DEBUG_PORT",
           "set arch riscv:rv32",
           "set mem inaccessible-by-default off",
+          "set remotetimeout 250",
           "$INIT_BREAK",
           "$LOAD_CMD",
           "pio_reset_halt_target"
