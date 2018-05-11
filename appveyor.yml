@@ -3,8 +3,10 @@ environment:
 
   matrix:
     - PLATFORMIO_PROJECT_DIR: "examples/freedom-e-sdk_asm"
+    - PLATFORMIO_PROJECT_DIR: "examples/freedom-e-sdk_dhrystone"
     - PLATFORMIO_PROJECT_DIR: "examples/freedom-e-sdk_gpio"
     - PLATFORMIO_PROJECT_DIR: "examples/freedom-e-sdk_hello"
+    - PLATFORMIO_PROJECT_DIR: "examples/freedom-e-sdk_smp"
 
 install:
 - cmd: git submodule update --init --recursive
