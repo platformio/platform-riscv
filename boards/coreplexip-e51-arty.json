@@ -1,0 +1,58 @@
+{
+  "build": {
+    "f_cpu": "1500000000L",
+    "hwids": [
+      [
+        "0x0403",
+        "0x6010"
+      ]
+    ],
+    "ldscript": "flash.lds",
+    "mabi": "lp64",
+    "march": "rv64imac",
+    "mcmodel": "medany",
+    "mcu": "e51"
+  },
+  "debug": {
+    "tools": {
+      "olimex-arm-usb-tiny-h": {
+        "init_cmds": [
+          "define pio_reset_halt_target",
+          "   monitor init",
+          "   monitor reset halt",
+          "end",
+          "define pio_reset_target",
+          "   monitor reset run",
+          "end",
+          "target remote $DEBUG_PORT",
+          "set arch riscv:rv64",
+          "set mem inaccessible-by-default off",
+          "set remotetimeout 250",
+          "$INIT_BREAK",
+          "$LOAD_CMD",
+          "pio_reset_halt_target"
+        ],
+        "server": {
+          "arguments": [
+            "-c", "adapter_khz 5000",
+            "-f", "scripts/interface/ftdi/olimex-arm-usb-tiny-h.cfg",
+            "-f", "scripts/board/sifive-e51arty.cfg"
+          ],
+          "executable": "bin/openocd",
+          "package": "tool-openocd"
+        }
+      }
+    }
+  },
+  "frameworks": [
+    "freedom-e-sdk"
+  ],
+  "name": "E51 Arty (Artix-7) FPGA Dev Kit",
+  "upload": {
+    "maximum_ram_size": 268435456,
+    "maximum_size": 16777216,
+    "protocol": "olimex-arm-usb-tiny-h"
+  },
+  "url": "http://www.xilinx.com/products/boards-and-kits/arty.html",
+  "vendor": "Xilinx"
+}

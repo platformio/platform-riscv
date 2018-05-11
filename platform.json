@@ -1,0 +1,42 @@
+{
+  "name": "riscv",
+  "title": "RISC-V",
+  "description": "RISC-V is an open, free ISA enabling a new era of processor innovation through open standard collaboration. Born in academia and research, RISC-V ISA delivers a new level of free, extensible software and hardware freedom on architecture, paving the way for the next 50 years of computing design and innovation.",
+  "url": "https://riscv.org",
+  "homepage": "http://platformio.org/platforms/riscv",
+  "license": "Apache-2.0",
+  "engines": {
+    "platformio": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/platformio/platform-riscv.git"
+  },
+  "version": "0.1.0",
+  "packageRepositories": [
+    "https://dl.bintray.com/platformio/dl-packages/manifest.json",
+    "http://dl.platformio.org/packages/manifest.json"
+  ],
+  "frameworks": {
+    "freedom-e-sdk": {
+      "package": "framework-freedom-e-sdk",
+      "script": "builder/frameworks/freedom-e-sdk.py"
+    }
+  },
+  "packages": {
+    "framework-freedom-e-sdk": {
+      "optional": true,
+      "type": "framework",
+      "version": "~1.20180402.0"
+    },
+    "tool-openocd": {
+      "optional": true,
+      "type": "uploader",
+      "version": "~1.1000.0"
+    },
+    "toolchain-riscv": {
+      "type": "toolchain",
+      "version": "~1.70200.0"
+    }
+  }
+}
