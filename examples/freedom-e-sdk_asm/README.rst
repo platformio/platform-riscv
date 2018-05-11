@@ -20,7 +20,7 @@ How to build PlatformIO based project
 .. code-block:: bash
 
     # Change directory to example
-    > cd platform-riscv/examples/freedom-e-sdk_gpio
+    > cd platform-riscv/examples/freedom-e-sdk_asm
 
     # Build project
     > platformio run

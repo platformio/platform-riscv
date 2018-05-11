@@ -3,7 +3,9 @@ python:
   - "2.7"
 
 env:
-  - PLATFORMIO_PROJECT_DIR=examples/freedom-e-sdk-gpio
+  - PLATFORMIO_PROJECT_DIR=examples/freedom-e-sdk_asm
+  - PLATFORMIO_PROJECT_DIR=examples/freedom-e-sdk_gpio
+  - PLATFORMIO_PROJECT_DIR=examples/freedom-e-sdk_hello
 
 install:
   - pip install -U https://github.com/platformio/platformio/archive/develop.zip

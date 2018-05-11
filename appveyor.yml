@@ -2,7 +2,9 @@ build: off
 environment:
 
   matrix:
-    - PLATFORMIO_PROJECT_DIR: "examples/freedom-e-sdk-gpio"
+    - PLATFORMIO_PROJECT_DIR: "examples/freedom-e-sdk_asm"
+    - PLATFORMIO_PROJECT_DIR: "examples/freedom-e-sdk_gpio"
+    - PLATFORMIO_PROJECT_DIR: "examples/freedom-e-sdk_hello"
 
 install:
 - cmd: git submodule update --init --recursive
