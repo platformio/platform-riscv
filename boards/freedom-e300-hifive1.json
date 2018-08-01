@@ -16,7 +16,7 @@
   "debug": {
     "svd_path": "FE310.svd",
     "tools": {
-      "ft2232h": {
+      "ftdi": {
         "init_cmds": [
           "define pio_reset_halt_target",
           "   monitor init",
@@ -52,7 +52,7 @@
   "upload": {
     "maximum_ram_size": 16384,
     "maximum_size": 16777216,
-    "protocol": "ft2232h"
+    "protocol": "ftdi"
   },
   "url": "https://www.sifive.com/products/hifive1/",
   "vendor": "SiFive"
