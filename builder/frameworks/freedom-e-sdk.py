@@ -11,6 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 """
 Freedom E RISC-V SDK
 
@@ -27,6 +28,8 @@ env = DefaultEnvironment()
 
 FRAMEWORK_DIR = env.PioPlatform().get_package_dir("framework-freedom-e-sdk")
 assert FRAMEWORK_DIR and isdir(FRAMEWORK_DIR)
+
+env.SConscript("_bare.py", exports="env")
 
 env.Append(
     CCFLAGS=[
