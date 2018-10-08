@@ -35,11 +35,11 @@
         "server": {
           "arguments": [
             "-c", "adapter_khz 5000",
-            "-f", "scripts/interface/ftdi/olimex-arm-usb-tiny-h.cfg",
-            "-f", "scripts/board/sifive-e31arty.cfg"
+            "-f", "share/openocd/scripts/interface/ftdi/olimex-arm-usb-tiny-h.cfg",
+            "-f", "share/openocd/scripts/board/sifive-e31arty.cfg"
           ],
           "executable": "bin/openocd",
-          "package": "tool-openocd"
+          "package": "tool-openocd-riscv"
         }
       }
     }

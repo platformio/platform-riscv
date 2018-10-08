@@ -81,12 +81,12 @@ if upload_protocol in debug_tools:
     openocd_args = [
         "-c",
         "debug_level %d" % (2 if int(ARGUMENTS.get("PIOVERBOSE", 0)) else 1),
-        "-s", platform.get_package_dir("tool-openocd") or ""
+        "-s", platform.get_package_dir("tool-openocd-riscv") or ""
     ]
     openocd_args.extend(
         debug_tools.get(upload_protocol).get("server").get("arguments", []))
     openocd_args.extend([
-        "-c", "program {{$SOURCE}} %s verify; shutdown;" %
+        "-c", "program {$SOURCE} %s verify; shutdown;" %
         board_config.get("upload").get("flash_start", "")
     ])
     env.Replace(

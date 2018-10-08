@@ -29,10 +29,10 @@
       "type": "framework",
       "version": "~1.20180402.0"
     },
-    "tool-openocd": {
+    "tool-openocd-riscv": {
       "optional": true,
       "type": "uploader",
-      "version": "~1.1000.0"
+      "version": "~1.20180707.0"
     },
     "toolchain-riscv": {
       "type": "toolchain",

@@ -37,10 +37,10 @@
         "server": {
           "arguments": [
             "-f",
-            "scripts/board/sifive-hifive1.cfg"
+            "share/openocd/scripts/board/sifive-hifive1.cfg"
           ],
           "executable": "bin/openocd",
-          "package": "tool-openocd"
+          "package": "tool-openocd-riscv"
         }
       }
     }
