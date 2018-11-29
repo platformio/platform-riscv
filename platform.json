@@ -12,10 +12,10 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-riscv.git"
   },
-  "version": "0.2.0",
+  "version": "0.2.1",
   "packageRepositories": [
-    "https://dl.bintray.com/platformio/dl-packages/manifest.json",
-    "http://dl.platformio.org/packages/manifest.json"
+    "http://dl.platformio.org/packages/manifest.json",
+    "https://dl.bintray.com/platformio/dl-packages/manifest.json"
   ],
   "frameworks": {
     "freedom-e-sdk": {
