@@ -96,7 +96,7 @@ if upload_protocol in debug_tools:
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
 
 # custom upload tool
-elif "UPLOADCMD" in env:
+elif upload_protocol == "custom":
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
 
 else:
