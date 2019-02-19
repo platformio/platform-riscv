@@ -32,7 +32,7 @@
     "tool-openocd-riscv": {
       "optional": true,
       "type": "uploader",
-      "version": "~1.20180707.0"
+      "version": "~2.1000.20181218"
     },
     "toolchain-riscv": {
       "type": "toolchain",
