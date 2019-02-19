@@ -45,7 +45,7 @@ if env.get("PROGNAME", "program") == "program":
     env.Replace(PROGNAME="firmware")
 
 if not env.get("PIOFRAMEWORK"):
-    env.SConscript("frameworks/_bare.py")
+    env.SConscript("frameworks/_bare.py", exports="env")
 
 #
 # Target: Build executable and linkable firmware
@@ -96,7 +96,7 @@ if upload_protocol in debug_tools:
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
 
 # custom upload tool
-elif "UPLOADCMD" in env:
+elif upload_protocol == "custom":
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
 
 else:

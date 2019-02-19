@@ -6,16 +6,16 @@
   "homepage": "http://platformio.org/platforms/riscv",
   "license": "Apache-2.0",
   "engines": {
-    "platformio": "^3.0.0"
+    "platformio": "<5"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/platformio/platform-riscv.git"
   },
-  "version": "0.2.1",
+  "version": "0.3.0",
   "packageRepositories": [
-    "http://dl.platformio.org/packages/manifest.json",
-    "https://dl.bintray.com/platformio/dl-packages/manifest.json"
+    "https://dl.bintray.com/platformio/dl-packages/manifest.json",
+    "http://dl.platformio.org/packages/manifest.json"
   ],
   "frameworks": {
     "freedom-e-sdk": {
@@ -32,7 +32,7 @@
     "tool-openocd-riscv": {
       "optional": true,
       "type": "uploader",
-      "version": "~1.20180707.0"
+      "version": "~2.1000.20181218"
     },
     "toolchain-riscv": {
       "type": "toolchain",

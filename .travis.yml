@@ -1,6 +1,7 @@
 language: python
 python:
   - "2.7"
+  - "3.6"
 
 env:
   - PLATFORMIO_PROJECT_DIR=examples/freedom-e-sdk_asm
@@ -8,6 +9,7 @@ env:
   - PLATFORMIO_PROJECT_DIR=examples/freedom-e-sdk_gpio
   - PLATFORMIO_PROJECT_DIR=examples/freedom-e-sdk_hello
   - PLATFORMIO_PROJECT_DIR=examples/freedom-e-sdk_smp
+  - PLATFORMIO_PROJECT_DIR=examples/native-blink_asm
 
 install:
   - pip install -U https://github.com/platformio/platformio/archive/develop.zip
