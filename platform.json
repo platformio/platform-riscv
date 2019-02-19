@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-riscv.git"
   },
-  "version": "0.2.1",
+  "version": "0.3.0",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json"
