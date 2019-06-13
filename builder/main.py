@@ -21,7 +21,7 @@ from SCons.Script import (ARGUMENTS, COMMAND_LINE_TARGETS, AlwaysBuild,
 
 env = DefaultEnvironment()
 platform = env.PioPlatform()
-board_config = env.BoardConfig()
+board = env.BoardConfig()
 
 env.Replace(
     AR="riscv64-unknown-elf-gcc-ar",
@@ -74,21 +74,24 @@ AlwaysBuild(target_size)
 #
 
 upload_protocol = env.subst("$UPLOAD_PROTOCOL")
-debug_tools = board_config.get("debug.tools", {})
+debug_tools = board.get("debug.tools", {})
 upload_actions = []
 
 if upload_protocol in debug_tools:
     openocd_args = [
-        "-c",
-        "debug_level %d" % (2 if int(ARGUMENTS.get("PIOVERBOSE", 0)) else 1),
-        "-s", platform.get_package_dir("tool-openocd-riscv") or ""
+        "-d%d" % (2 if int(ARGUMENTS.get("PIOVERBOSE", 0)) else 1)
     ]
     openocd_args.extend(
         debug_tools.get(upload_protocol).get("server").get("arguments", []))
     openocd_args.extend([
         "-c", "program {$SOURCE} %s verify; shutdown;" %
-        board_config.get("upload").get("flash_start", "")
+        board.get("upload.offset_address", "")
     ])
+    openocd_args = [
+        f.replace("$PACKAGE_DIR",
+                  platform.get_package_dir("tool-openocd-riscv") or "")
+        for f in openocd_args
+    ]
     env.Replace(
         UPLOADER="openocd",
         UPLOADERFLAGS=openocd_args,
