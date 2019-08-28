@@ -36,8 +36,8 @@
         "onboard": true,
         "server": {
           "arguments": [
-            "-f",
-            "share/openocd/scripts/board/sifive-hifive1.cfg"
+            "-s", "$PACKAGE_DIR/share/openocd/scripts",
+            "-f", "board/sifive-hifive1.cfg"
           ],
           "executable": "bin/openocd",
           "package": "tool-openocd-riscv"

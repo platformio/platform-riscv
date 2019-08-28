@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-riscv.git"
   },
-  "version": "0.3.0",
+  "version": "0.3.1",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json"
@@ -27,7 +27,7 @@
     "framework-freedom-e-sdk": {
       "optional": true,
       "type": "framework",
-      "version": "~1.20181009.0"
+      "version": "~1.20181009.1"
     },
     "tool-openocd-riscv": {
       "optional": true,
