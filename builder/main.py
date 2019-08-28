@@ -15,8 +15,26 @@
 import sys
 from os.path import join
 
+import click
 from SCons.Script import (ARGUMENTS, COMMAND_LINE_TARGETS, AlwaysBuild,
                           Default, DefaultEnvironment)
+
+
+click.echo("""
+
+*******************************************************************************
+                            !!! WARNING!!!
+*******************************************************************************
+
+This development platform is obsolete and will be removed from registry soon!
+Please switch to the official SiFive development platform:
+
+http://docs.platformio.org/en/latest/platforms/sifive.html
+
+*******************************************************************************
+
+
+""", err=True)
 
 
 env = DefaultEnvironment()
